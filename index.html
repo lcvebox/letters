@@ -59,6 +59,7 @@ header {
 .subtitle {
   font-size: 13px;
   letter-spacing: 1px;
+  line-height: 1.8;
 }
 
 .profile {
@@ -95,32 +96,46 @@ header {
   font-size: 14px;
 }
 
+/* Soft glowing white snowfall */
 .snow {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 10;
 }
 
 .snow span {
   position: absolute;
-  top: -15px;
-  color: white;
-  font-size: 15px;
-  animation: fall 7s linear infinite;
-  opacity: .9;
+  top: -12px;
+  border-radius: 50%;
+  background: white;
+  box-shadow:
+    0 0 5px 2px rgba(255,255,255,1),
+    0 0 12px 4px rgba(255,255,255,.75);
+  opacity: 0;
+  animation: softSnowfall linear infinite;
 }
 
-.snow span:nth-child(1) { left: 8%; animation-delay: 0s; }
-.snow span:nth-child(2) { left: 22%; animation-delay: 2s; }
-.snow span:nth-child(3) { left: 39%; animation-delay: 4s; }
-.snow span:nth-child(4) { left: 55%; animation-delay: 1s; }
-.snow span:nth-child(5) { left: 72%; animation-delay: 3s; }
-.snow span:nth-child(6) { left: 90%; animation-delay: 5s; }
-
-@keyframes fall {
-  0% { transform: translateY(-10px) rotate(0deg); }
-  100% { transform: translateY(230px) rotate(180deg); }
+@keyframes softSnowfall {
+  0% {
+    transform: translate3d(0,-10px,0) scale(.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: .95;
+  }
+  50% {
+    transform: translate3d(12px,110px,0) scale(1);
+    opacity: .8;
+  }
+  85% {
+    opacity: .65;
+  }
+  100% {
+    transform: translate3d(-8px,240px,0) scale(.4);
+    opacity: 0;
+  }
 }
 
 .music {
@@ -233,6 +248,7 @@ footer {
   font-size: 12px;
 }
 
+/* Favourite popup */
 .modal {
   display: none;
   position: fixed;
@@ -257,6 +273,18 @@ footer {
   border-radius: 22px;
   background: white;
   box-shadow: 0 12px 40px #6e526422;
+  animation: popup .25s ease-out;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal-box img {
@@ -320,27 +348,24 @@ footer {
   <header>
     <h1 class="site-name">꒰‎ ᐢ‎ ‎ ᐢ‎ ꒱</h1>
     <div class="subtitle">
-      welcome to my lιttle corner of the ιnternet ✧
+      welcome to my little corner of the internet ✧
     </div>
     <p class="subtitle">
-      stαy α lιttle , look αround , αnd hαve α lovely dαy ♡
+      stay a little, look around, and have a lovely day ♡
     </p>
   </header>
 
   <section class="profile">
-    <div class="snow" aria-hidden="true">
-      <span>♡</span><span>✧</span><span>♡</span>
-      <span>✧</span><span>♡</span><span>✧</span>
-    </div>
+    <div class="snow" id="snow" aria-hidden="true"></div>
 
     <img class="avatar" src="mypfp.jpg" alt="my profile picture">
 
     <div>
-      <h2>hαi, welcome ♡</h2>
+      <h2>hi, welcome ♡</h2>
       <p>she / her</p>
-      <p>31 mαy</p>
-      <p>frαgιle heαrt . . ♡</p>
-      <p>just α lιttle person who loves cute thιngs.</p>
+      <p>31 may</p>
+      <p>fragile heart . . ♡</p>
+      <p>just a little person who loves cute things.</p>
     </div>
   </section>
 
@@ -354,7 +379,7 @@ footer {
     style="position:absolute;width:1px;height:1px;overflow:hidden;left:-9999px;">
   </div>
 
-  <h2 class="section-title">my interests ♡</h2>
+  <h2 class="section-title">my favourites ♡</h2>
   <p class="section-note">click on a little charm to see a message ✧</p>
 
   <section class="interests">
@@ -422,18 +447,20 @@ footer {
   </section>
 
   <nav class="socials">
-    <a class="social" href="https://www.roblox.com/" target="_blank" rel="noopener">
+    <a class="social" href="https://www.roblox.com/"
+      target="_blank" rel="noopener">
       <img src="charms/book.png" alt="">
       roblox ♡
     </a>
 
-    <a class="social" href="https://discord.com/app" target="_blank" rel="noopener">
+    <a class="social" href="https://discord.com/app"
+      target="_blank" rel="noopener">
       <img src="charms/book.png" alt="">
       discord ♡
     </a>
   </nav>
 
-  <footer>mαde wιth ♡ by me</footer>
+  <footer>made with ♡ by me</footer>
 </main>
 
 <div class="modal" id="interest-modal" onclick="outsideClose(event)">
@@ -446,71 +473,90 @@ footer {
 </div>
 
 <script>
+/* Create the tiny glowing snowfall */
+const snowContainer = document.getElementById("snow");
+
+for (let i = 0; i < 28; i++) {
+  const sparkle = document.createElement("span");
+
+  sparkle.style.left = Math.random() * 100 + "%";
+  sparkle.style.animationDuration = (6 + Math.random() * 7) + "s";
+  sparkle.style.animationDelay = (Math.random() * 12) + "s";
+
+  const size = 2 + Math.random() * 3;
+  sparkle.style.width = size + "px";
+  sparkle.style.height = size + "px";
+
+  snowContainer.appendChild(sparkle);
+}
+
+/* Favourite popup messages */
 const interests = [
   {
     title: "my boyfriend ♡",
     image: "charms/heartbow.png",
-    message: "my fαvourιte person , αlwαys ♡"
+    message: "my favourite person, always ♡ 💌"
   },
   {
     title: "my bsf ♡",
     image: "charms/bow.png",
-    message: "lιsette , my precιous αngel ♡"
+    message: "Lisette, my precious angel ♡ 🎀"
   },
   {
     title: "the bunnies friends group",
     image: "charms/bone.png",
-    message: "my lιttle corner wιth my fαvourιte people"
+    message: "a place full of love and memories 💌🐰🌸"
   },
   {
     title: "the collared pets friends group",
     image: "charms/collar.png",
-    message: "α lιttle spαce for our memorιes"
+    message: "little corner with my favourite people 🎀💌"
   },
   {
     title: "bunnies ♡",
     image: "charms/bunny.png",
-    message: "lιttle fluffy thιngs ι αdore"
+    message: "soft and precious 🐰🌸"
   },
   {
     title: "kitties ♡",
     image: "charms/kitty.png",
-    message: "my lιttle bαby pαws ♡"
+    message: "my little baby paws 🐾"
   },
   {
     title: "plushies ♡",
     image: "charms/flower.png",
-    message: "my cute comfort collectιon ♡"
+    message: "my cute comfort collection 🎀"
   },
   {
     title: "animanga ♡",
     image: "charms/pencil.png",
-    message: "my lιttle animanga corner ♡"
+    message: "things i into 💌"
   },
   {
     title: "sanrio ♡",
     image: "charms/mymelodyhead.png",
-    message: "my sanrio fαvourιtes ♡"
+    message: "my favourites characters 🎀"
   },
   {
     title: "kawaii / cute things ♡",
     image: "charms/clip.png",
-    message: "lιttle thιngs thαt mαke me hαppy ♡"
+    message: "little things that make me happy 🌸🎀"
   },
   {
     title: "fashion ♡",
     image: "charms/melodypurse.png",
-    message: "everyone hαs theιr own style ι αdore ♡"
+    message: "everyone has their own style i adore ♡ 🎀"
   },
   {
     title: "sweets ♡",
     image: "charms/cupcake.png",
-    message: "ι enjoy αny lιttle sweet dessert ♡"
+    message: "i enjoy any little sweet dessert 🍰"
   }
 ];
 
 function showMessage(index) {
   const item = interests[index];
+
   document.getElementById("modal-image").src = item.image;
   document.getElementById("modal-title").textContent = item.title;
   document.getElementById("modal-message").textContent = item.message;
@@ -565,6 +611,11 @@ function createPlayer() {
     events: {
       onReady: function() {
         playerReady = true;
+      },
+      onStateChange: function(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+          player.playVideo();
+        }
       }
     }
   });
