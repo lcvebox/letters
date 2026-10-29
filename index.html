@@ -4,16 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>my lιttle corner ♡</title>
+<title>꒰‎ ᐢ‎ ‎ ᐢ‎ ꒱</title>
 
 <style>
 :root {
-  --pink: #f2c5d7;
-  --blush: #f9e5ec;
-  --pale: #fff8fb;
+  --pink: #ffe1f0;
   --white: #ffffff;
-  --text: #806674;
-  --dark-pink: #c78da7;
+  --text: #8f7180;
+  --dark-pink: #d9a2bd;
 }
 
 * {
@@ -23,558 +21,581 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(255,248,251,.73), rgba(255,248,251,.83)),
-    url("background.jpg") center center / cover fixed;
-  background-color: #fff8fb;
+  font-family: Georgia, serif;
   color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
-  overflow-x: hidden;
-}
-
-/* soft pink background */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+  background: var(--white);
   background-image:
-    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px);
-  background-size: 26px 26px;
-  opacity: .45;
+    radial-gradient(circle at 10% 20%, #ffe1f0 0, transparent 24%),
+    radial-gradient(circle at 90% 80%, #fff0f7 0, transparent 28%);
 }
 
-/* falling snow and sparkles */
-
-.snow {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  overflow: hidden;
-  pointer-events: none;
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
 }
-
-.flake {
-  position: absolute;
-  top: -20px;
-  left: var(--x);
-  color: white;
-  font-size: var(--size);
-  opacity: var(--opacity);
-  text-shadow:
-    0 0 4px #fff,
-    0 0 9px #f3c5dd,
-    0 0 15px #ffffff;
-  animation: snowfall var(--duration) linear var(--delay) infinite;
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translate3d(0, -5vh, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(22px, 50vh, 0) rotate(160deg);
-  }
-  100% {
-    transform: translate3d(-15px, 110vh, 0) rotate(320deg);
-  }
-}
-
-/* main profile */
 
 .page {
-  position: relative;
-  z-index: 2;
-  width: min(92%, 670px);
+  width: min(900px, 92%);
   margin: 0 auto;
-  padding: 38px 0 28px;
+  padding: 35px 0 25px;
 }
 
-.card {
+header {
+  text-align: center;
+  padding: 24px 12px;
+  margin-bottom: 22px;
+  border: 1px solid var(--pink);
+  border-radius: 22px;
+  background: #ffffffd9;
+}
+
+.site-name {
+  font-size: clamp(28px, 6vw, 42px);
+  margin: 0 0 10px;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.profile {
   position: relative;
   overflow: hidden;
-  padding: 26px 20px;
-  border: 1px solid rgba(255,255,255,.95);
-  border-radius: 25px;
-  background: rgba(255, 250, 252, .84);
-  box-shadow:
-    0 10px 35px rgba(194, 140, 164, .13),
-    inset 0 0 20px rgba(255,255,255,.7);
-  backdrop-filter: blur(7px);
-}
-
-.music-area {
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-.music-heart {
-  display: inline-flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 155px 1fr;
+  gap: 24px;
   align-items: center;
-  width: 55px;
-  height: 48px;
-  border: 1px solid #f0cfdd;
-  border-radius: 20px;
-  background: rgba(255,255,255,.88);
-  color: var(--dark-pink);
-  font: 27px Georgia, serif;
-  cursor: pointer;
-  transition: transform .25s, background .25s;
+  padding: 24px;
+  border-radius: 22px;
+  background: var(--pink);
+  border: 1px solid #f8cfe2;
 }
 
-.music-heart:hover {
-  transform: scale(1.09);
-  background: #fff0f6;
-}
-
-.music-caption {
-  margin-top: 5px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: #b28a9e;
-}
-
-.music-status {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #b28a9e;
-  min-height: 14px;
-}
-
-.profile-pic {
-  display: block;
-  width: 116px;
-  height: 116px;
-  margin: 0 auto 12px;
-  border-radius: 50%;
+.avatar {
+  width: 145px;
+  height: 145px;
   object-fit: cover;
-  border: 4px solid white;
-  outline: 1px solid #efccdc;
-  box-shadow: 0 5px 18px rgba(197, 144, 166, .2);
+  border-radius: 18px;
+  border: 5px solid white;
+  background: white;
 }
 
-.profile-name {
-  text-align: center;
-  font-size: 26px;
+.profile h2 {
+  margin: 0 0 12px;
+  font-size: 25px;
   font-weight: normal;
-  margin: 8px 0 12px;
-  color: #b47d98;
 }
 
-.profile-info {
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin: 12px 0;
-}
-
-.info-pill {
-  border: 1px solid #f2d8e3;
-  background: rgba(255,255,255,.8);
-  border-radius: 20px;
-  padding: 7px 13px;
-  font-size: 12px;
-}
-
-.bio {
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 15px 0 4px;
-}
-
-.divider {
-  text-align: center;
-  color: #d9a7be;
-  margin: 20px 0;
-  letter-spacing: 7px;
-  font-size: 13px;
-}
-
-.welcome {
-  text-align: center;
-  padding: 8px 2px 18px;
-}
-
-.welcome h2 {
-  font-weight: normal;
-  font-size: 20px;
-  color: #bd89a1;
+.profile p {
+  margin: 8px 0;
   line-height: 1.7;
-  margin: 0 0 5px;
+  font-size: 14px;
 }
 
-.welcome p {
+.snow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snow span {
+  position: absolute;
+  top: -15px;
+  color: white;
+  font-size: 15px;
+  animation: fall 7s linear infinite;
+  opacity: .9;
+}
+
+.snow span:nth-child(1) { left: 8%; animation-delay: 0s; }
+.snow span:nth-child(2) { left: 22%; animation-delay: 2s; }
+.snow span:nth-child(3) { left: 39%; animation-delay: 4s; }
+.snow span:nth-child(4) { left: 55%; animation-delay: 1s; }
+.snow span:nth-child(5) { left: 72%; animation-delay: 3s; }
+.snow span:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); }
+  100% { transform: translateY(230px) rotate(180deg); }
+}
+
+.music {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid var(--pink);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: white;
+}
+
+.heart-button {
+  border: none;
+  background: var(--pink);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 23px;
+  transition: transform .2s;
+}
+
+.heart-button:hover {
+  transform: scale(1.1);
+}
+
+#music-status {
   font-size: 13px;
-  line-height: 1.9;
-  margin: 0;
-  color: #987b89;
 }
-
-/* interests */
 
 .section-title {
   text-align: center;
-  font-size: 17px;
+  font-size: 25px;
   font-weight: normal;
-  letter-spacing: 1px;
-  margin: 0 0 18px;
-  color: #bd89a1;
+  margin: 32px 0 8px;
+}
+
+.section-note {
+  text-align: center;
+  font-size: 13px;
+  margin: 0 0 20px;
 }
 
 .interests {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
 }
 
 .interest {
   min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 12px 10px;
-  min-height: 94px;
-  border: 1px solid rgba(239, 207, 222, .9);
-  border-radius: 17px;
-  background: rgba(255,255,255,.82);
-  transition: transform .2s, box-shadow .2s;
+  padding: 15px 10px;
+  border: 1px solid #f7d2e3;
+  border-radius: 18px;
+  background: white;
+  transition: transform .2s, background .2s;
 }
 
 .interest:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(205, 154, 177, .15);
+  background: #fff5fa;
 }
 
-.charm {
-  flex-shrink: 0;
-  width: 53px;
-  height: 53px;
+.interest img {
+  display: block;
+  width: 75px;
+  height: 75px;
   object-fit: contain;
-}
-
-.interest-copy {
-  min-width: 0;
-}
-
-.interest h3 {
-  font-size: 13px;
-  font-weight: normal;
-  color: #b17c95;
-  margin: 0 0 5px;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
+  margin: 0 auto 10px;
 }
 
 .interest p {
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 13px;
   margin: 0;
-  color: #927785;
   overflow-wrap: anywhere;
 }
-
-/* social links */
 
 .socials {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 19px;
+  margin: 30px 0;
 }
 
-.social-link {
+.social {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   text-decoration: none;
-  color: #a87790;
-  font-size: 12px;
-  padding: 9px 14px;
-  border-radius: 18px;
-  border: 1px solid #efd3df;
-  background: rgba(255,255,255,.85);
-  transition: background .2s;
+  color: var(--text);
+  background: var(--pink);
+  border: 1px solid #f7d2e3;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 13px;
 }
 
-.social-link:hover {
-  background: #fff0f6;
-}
-
-.social-link img {
-  width: 28px;
-  height: 28px;
+.social img {
+  width: 23px;
+  height: 23px;
   object-fit: contain;
 }
 
 footer {
   text-align: center;
-  padding: 20px 0 8px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #b694a4;
+  padding: 20px 0 5px;
+  font-size: 12px;
 }
 
-@media (max-width: 400px) {
-  .page {
-    width: 94%;
-    padding-top: 20px;
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #6e526477;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  width: min(340px, 100%);
+  text-align: center;
+  padding: 28px 22px;
+  border: 2px solid var(--pink);
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 12px 40px #6e526422;
+}
+
+.modal-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.modal-box h3 {
+  font-size: 19px;
+  font-weight: normal;
+  margin: 0 0 12px;
+}
+
+.modal-box p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  right: 13px;
+  top: 10px;
+  background: var(--pink);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 600px) {
+  .profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 14px;
   }
 
-  .card {
-    padding: 22px 13px;
+  .avatar {
+    margin: auto;
+    width: 125px;
+    height: 125px;
   }
 
   .interests {
-    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .interest {
-    padding: 10px 7px;
-    gap: 7px;
-    min-height: 86px;
-  }
-
-  .charm {
-    width: 43px;
-    height: 43px;
-  }
-
-  .interest h3 {
-    font-size: 12px;
-  }
-
-  .interest p {
-    font-size: 10px;
+  .page {
+    width: 92%;
+    padding-top: 18px;
   }
 }
 </style>
 </head>
 
 <body>
-
-<!-- soft, slowly falling snow -->
-
-<div class="snow" aria-hidden="true">
-  <span class="flake" style="--x:3%;--size:12px;--opacity:.85;--duration:17s;--delay:-5s">✧</span>
-  <span class="flake" style="--x:8%;--size:8px;--opacity:.8;--duration:21s;--delay:-12s">❄</span>
-  <span class="flake" style="--x:14%;--size:15px;--opacity:.7;--duration:19s;--delay:-3s">✦</span>
-  <span class="flake" style="--x:19%;--size:9px;--opacity:.9;--duration:24s;--delay:-15s">✧</span>
-  <span class="flake" style="--x:25%;--size:11px;--opacity:.8;--duration:18s;--delay:-8s">❄</span>
-  <span class="flake" style="--x:31%;--size:7px;--opacity:.7;--duration:22s;--delay:-2s">✦</span>
-  <span class="flake" style="--x:37%;--size:13px;--opacity:.9;--duration:20s;--delay:-11s">✧</span>
-  <span class="flake" style="--x:43%;--size:8px;--opacity:.8;--duration:25s;--delay:-7s">❄</span>
-  <span class="flake" style="--x:49%;--size:12px;--opacity:.7;--duration:18s;--delay:-14s">✦</span>
-  <span class="flake" style="--x:55%;--size:9px;--opacity:.9;--duration:23s;--delay:-4s">✧</span>
-  <span class="flake" style="--x:61%;--size:14px;--opacity:.75;--duration:19s;--delay:-10s">❄</span>
-  <span class="flake" style="--x:67%;--size:8px;--opacity:.85;--duration:22s;--delay:-6s">✦</span>
-  <span class="flake" style="--x:73%;--size:12px;--opacity:.8;--duration:24s;--delay:-13s">✧</span>
-  <span class="flake" style="--x:79%;--size:9px;--opacity:.9;--duration:17s;--delay:-1s">❄</span>
-  <span class="flake" style="--x:85%;--size:13px;--opacity:.7;--duration:21s;--delay:-9s">✦</span>
-  <span class="flake" style="--x:91%;--size:8px;--opacity:.85;--duration:25s;--delay:-16s">✧</span>
-  <span class="flake" style="--x:97%;--size:11px;--opacity:.8;--duration:20s;--delay:-6s">❄</span>
-  <span class="flake" style="--x:5%;--size:7px;--opacity:.6;--duration:26s;--delay:-20s">✦</span>
-  <span class="flake" style="--x:23%;--size:10px;--opacity:.8;--duration:23s;--delay:-18s">✧</span>
-  <span class="flake" style="--x:42%;--size:7px;--opacity:.7;--duration:27s;--delay:-21s">❄</span>
-  <span class="flake" style="--x:64%;--size:10px;--opacity:.8;--duration:22s;--delay:-19s">✦</span>
-  <span class="flake" style="--x:82%;--size:7px;--opacity:.75;--duration:26s;--delay:-17s">✧</span>
-</div>
-
-<!-- hidden music player; click the heart to start music -->
-
-<iframe
-  id="musicPlayer"
-  title="background music"
-  allow="autoplay; encrypted-media"
-  style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;border:0"
-></iframe>
-
 <main class="page">
 
-  <section class="card">
+  <header>
+    <h1 class="site-name">꒰‎ ᐢ‎ ‎ ᐢ‎ ꒱</h1>
+    <div class="subtitle">
+      welcome to my lιttle corner of the ιnternet ✧
+    </div>
+    <p class="subtitle">
+      stαy α lιttle , look αround , αnd hαve α lovely dαy ♡
+    </p>
+  </header>
 
-    <div class="music-area">
-      <button class="music-heart" id="musicButton"
-        aria-label="play background music" onclick="toggleMusic()">♡</button>
-      <div class="music-caption">clιck</div>
-      <div class="music-status" id="musicStatus"></div>
+  <section class="profile">
+    <div class="snow" aria-hidden="true">
+      <span>♡</span><span>✧</span><span>♡</span>
+      <span>✧</span><span>♡</span><span>✧</span>
     </div>
 
-    <img class="profile-pic" src="mypfp.jpg" alt="my profile picture">
+    <img class="avatar" src="mypfp.jpg" alt="my profile picture">
 
-    <h1 class="profile-name">꒰ྀིっ˕ -｡꒱</h1>
-
-    <div class="profile-info">
-      <span class="info-pill">she / her</span>
-      <span class="info-pill">31 mαy</span>
+    <div>
+      <h2>hαi, welcome ♡</h2>
+      <p>she / her</p>
+      <p>31 mαy</p>
+      <p>frαgιle heαrt . . ♡</p>
+      <p>just α lιttle person who loves cute thιngs.</p>
     </div>
+  </section>
 
-    <p class="bio">frαgιle heαrt . . ♡</p>
+  <section class="music">
+    <button class="heart-button" id="music-button"
+      aria-label="Play music" onclick="toggleMusic()">♡</button>
+    <span id="music-status">click the heart to play music ♡</span>
+  </section>
 
-    <div class="divider">୨♡୧</div>
+  <div id="youtube-player"
+    style="position:absolute;width:1px;height:1px;overflow:hidden;left:-9999px;">
+  </div>
 
-    <div class="welcome">
-      <h2>welcome to my lιttle corner of the ιnternet ✧</h2>
-      <p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
-    </div>
+  <h2 class="section-title">my interests ♡</h2>
+  <p class="section-note">click on a little charm to see a message ✧</p>
 
-    <div class="divider">୨♡୧</div>
+  <section class="interests">
 
-    <h2 class="section-title">thιngs ι love ♡</h2>
+    <button class="interest" onclick="showMessage(0)">
+      <img src="charms/heartbow.png" alt="">
+      <p>my boyfriend ♡</p>
+    </button>
 
-    <div class="interests">
+    <button class="interest" onclick="showMessage(1)">
+      <img src="charms/bow.png" alt="">
+      <p>my bsf ♡</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/heartbow.png" alt="">
-        <div class="interest-copy">
-          <h3>my boyfriend</h3>
-          <p>my fαvourιte person , αlwαys ♡</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(2)">
+      <img src="charms/bone.png" alt="">
+      <p>the bunnies friends group</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/bow.png" alt="">
-        <div class="interest-copy">
-          <h3>my bsf</h3>
-          <p>lιsette , my precιous αngel ♡</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(3)">
+      <img src="charms/collar.png" alt="">
+      <p>the collared pets friends group</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/bone.png" alt="">
-        <div class="interest-copy">
-          <h3>the bunnies friends group</h3>
-          <p>my lιttle corner wιth my fαvourιte people</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(4)">
+      <img src="charms/bunny.png" alt="">
+      <p>bunnies</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/collar.png" alt="">
-        <div class="interest-copy">
-          <h3>the collαred pets friends group</h3>
-          <p>α lιttle spαce for our memorιes</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(5)">
+      <img src="charms/kitty.png" alt="">
+      <p>kitties</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/bunny.png" alt="">
-        <div class="interest-copy">
-          <h3>bunnies</h3>
-          <p>lιttle fluffy thιngs ι αdore</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(6)">
+      <img src="charms/flower.png" alt="">
+      <p>plushies</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/kitty.png" alt="">
-        <div class="interest-copy">
-          <h3>kitties</h3>
-          <p>my lιttle bαby pαws ♡</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(7)">
+      <img src="charms/pencil.png" alt="">
+      <p>animanga</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/flower.png" alt="">
-        <div class="interest-copy">
-          <h3>plushies</h3>
-          <p>my cute comfort collectιon ♡</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(8)">
+      <img src="charms/mymelodyhead.png" alt="">
+      <p>sanrio</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/pencil.png" alt="">
-        <div class="interest-copy">
-          <h3>animanga</h3>
-          <p>thιngs ι'm ιnto ♡</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(9)">
+      <img src="charms/clip.png" alt="">
+      <p>kawaii / cute things</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/mymelodyhead.png" alt="">
-        <div class="interest-copy">
-          <h3>sanrio</h3>
-          <p>αll my fαvourιte chαrαcters</p>
-        </div>
-      </article>
+    <button class="interest" onclick="showMessage(10)">
+      <img src="charms/melodypurse.png" alt="">
+      <p>fashion</p>
+    </button>
 
-      <article class="interest">
-        <img class="charm" src="charms/clip.png" alt="">
-        <div class="interest-copy">
-          <h3>kαwαιι / cute thιngs</h3>
-          <p>lιttle thιngs thαt mαke me hαppy ♡</p>
-        </div>
-      </article>
-
-      <article class="interest">
-        <img class="charm" src="charms/melodypurse.png" alt="">
-        <div class="interest-copy">
-          <h3>fashion</h3>
-          <p>everyone hαs theιr own style ι αdore ♡</p>
-        </div>
-      </article>
-
-      <article class="interest">
-        <img class="charm" src="charms/cupcake.png" alt="">
-        <div class="interest-copy">
-          <h3>sweets</h3>
-          <p>ι enjoy αny lιttle sweet dessert ♡</p>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="divider">୨♡୧</div>
-
-    <h2 class="section-title">fιnd me here ♡</h2>
-
-    <div class="socials">
-      <a class="social-link"
-        href="https://www.roblox.com/users/2530078224/profile"
-        target="_blank" rel="noopener noreferrer">
-        <img src="charms/book.png" alt="">
-        roblox
-      </a>
-
-      <a class="social-link"
-        href="https://discord.com/users/1459768880133308470"
-        target="_blank" rel="noopener noreferrer">
-        <img src="charms/book.png" alt="">
-        dιscord
-      </a>
-    </div>
+    <button class="interest" onclick="showMessage(11)">
+      <img src="charms/cupcake.png" alt="">
+      <p>sweets</p>
+    </button>
 
   </section>
 
-  <footer>mαde wιth ♡ by me</footer>
+  <nav class="socials">
+    <a class="social" href="https://www.roblox.com/" target="_blank" rel="noopener">
+      <img src="charms/book.png" alt="">
+      roblox ♡
+    </a>
 
+    <a class="social" href="https://discord.com/app" target="_blank" rel="noopener">
+      <img src="charms/book.png" alt="">
+      discord ♡
+    </a>
+  </nav>
+
+  <footer>mαde wιth ♡ by me</footer>
 </main>
 
-<script>
-const musicButton = document.getElementById("musicButton");
-const musicStatus = document.getElementById("musicStatus");
-const musicPlayer = document.getElementById("musicPlayer");
+<div class="modal" id="interest-modal" onclick="outsideClose(event)">
+  <div class="modal-box">
+    <button class="close" onclick="hideMessage()" aria-label="Close">×</button>
+    <img id="modal-image" src="" alt="">
+    <h3 id="modal-title"></h3>
+    <p id="modal-message"></p>
+  </div>
+</div>
 
-let musicPlaying = false;
+<script>
+const interests = [
+  {
+    title: "my boyfriend ♡",
+    image: "charms/heartbow.png",
+    message: "my fαvourιte person , αlwαys ♡"
+  },
+  {
+    title: "my bsf ♡",
+    image: "charms/bow.png",
+    message: "lιsette , my precιous αngel ♡"
+  },
+  {
+    title: "the bunnies friends group",
+    image: "charms/bone.png",
+    message: "my lιttle corner wιth my fαvourιte people"
+  },
+  {
+    title: "the collared pets friends group",
+    image: "charms/collar.png",
+    message: "α lιttle spαce for our memorιes"
+  },
+  {
+    title: "bunnies ♡",
+    image: "charms/bunny.png",
+    message: "lιttle fluffy thιngs ι αdore"
+  },
+  {
+    title: "kitties ♡",
+    image: "charms/kitty.png",
+    message: "my lιttle bαby pαws ♡"
+  },
+  {
+    title: "plushies ♡",
+    image: "charms/flower.png",
+    message: "my cute comfort collectιon ♡"
+  },
+  {
+    title: "animanga ♡",
+    image: "charms/pencil.png",
+    message: "my lιttle animanga corner ♡"
+  },
+  {
+    title: "sanrio ♡",
+    image: "charms/mymelodyhead.png",
+    message: "my sanrio fαvourιtes ♡"
+  },
+  {
+    title: "kawaii / cute things ♡",
+    image: "charms/clip.png",
+    message: "lιttle thιngs thαt mαke me hαppy ♡"
+  },
+  {
+    title: "fashion ♡",
+    image: "charms/melodypurse.png",
+    message: "everyone hαs theιr own style ι αdore ♡"
+  },
+  {
+    title: "sweets ♡",
+    image: "charms/cupcake.png",
+    message: "ι enjoy αny lιttle sweet dessert ♡"
+  }
+];
+
+function showMessage(index) {
+  const item = interests[index];
+  document.getElementById("modal-image").src = item.image;
+  document.getElementById("modal-title").textContent = item.title;
+  document.getElementById("modal-message").textContent = item.message;
+  document.getElementById("interest-modal").classList.add("show");
+}
+
+function hideMessage() {
+  document.getElementById("interest-modal").classList.remove("show");
+}
+
+function outsideClose(event) {
+  if (event.target.id === "interest-modal") {
+    hideMessage();
+  }
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") hideMessage();
+});
+
+/* YouTube music player */
+let player;
+let playerReady = false;
+let musicStarted = false;
+
+function loadYouTubeAPI() {
+  if (window.YT && window.YT.Player) {
+    createPlayer();
+    return;
+  }
+
+  if (!document.getElementById("youtube-api")) {
+    const tag = document.createElement("script");
+    tag.id = "youtube-api";
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  }
+}
+
+function createPlayer() {
+  if (player) return;
+
+  player = new YT.Player("youtube-player", {
+    height: "1",
+    width: "1",
+    videoId: "qzSs6MJOkbM",
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: "qzSs6MJOkbM"
+    },
+    events: {
+      onReady: function() {
+        playerReady = true;
+      }
+    }
+  });
+}
+
+window.onYouTubeIframeAPIReady = function() {
+  createPlayer();
+};
+
+loadYouTubeAPI();
 
 function toggleMusic() {
-  if (!musicPlaying) {
-    musicPlayer.src =
-      "https://www.youtube.com/embed/qzSs6MJOkbM?autoplay=1&loop=1&playlist=qzSs6MJOkbM";
+  const button = document.getElementById("music-button");
+  const status = document.getElementById("music-status");
 
-    musicButton.textContent = "♥";
-    musicButton.setAttribute("aria-label", "music started");
-    musicStatus.textContent = "enjoy the musιc ♡";
-    musicPlaying = true;
+  if (!playerReady || !player) {
+    status.textContent = "please wait a moment ♡";
+    loadYouTubeAPI();
+    return;
+  }
+
+  if (!musicStarted) {
+    player.playVideo();
+    musicStarted = true;
+    button.textContent = "♥";
+    status.textContent = "音楽を楽しんでね ♡";
   } else {
-    musicPlayer.src = "";
-    musicButton.textContent = "♡";
-    musicButton.setAttribute("aria-label", "play background music");
-    musicStatus.textContent = "";
-    musicPlaying = false;
+    player.pauseVideo();
+    musicStarted = false;
+    button.textContent = "♡";
+    status.textContent = "music paused ♡";
   }
 }
 </script>
