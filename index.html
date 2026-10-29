@@ -3,90 +3,470 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>my little corner ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>a little corner ♡</title>
+
 <style>
 :root {
-  --bg: #f2eafa;
-  --card: #ffffffd9;
-  --text: #594568;
-  --accent: #b89ad4;
-  --muted: #9987a6;
+  --pink: #f5c9df;
+  --deep: #c477a0;
+  --lavender: #e8defb;
+  --text: #76566b;
+  --line: #f0d5e4;
 }
-* { box-sizing: border-box; }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(
+    135deg, #fff5fa, #f8f0ff, #fff0f6
+  );
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .45;
+  background-image:
+    radial-gradient(#e6aaca 1px, transparent 1px),
+    radial-gradient(#c9b8ed 1px, transparent 1px);
+  background-size: 34px 34px, 53px 53px;
+  z-index: -1;
+}
+
+.sparkles span {
+  position: fixed;
+  color: #dca4c4;
+  opacity: .7;
+  pointer-events: none;
+  animation: float 7s ease-in-out infinite;
+}
+
+.sparkles span:nth-child(1) { top: 12%; left: 7%; }
+.sparkles span:nth-child(2) { top: 23%; right: 8%; animation-delay: -2s; }
+.sparkles span:nth-child(3) { top: 61%; left: 4%; animation-delay: -4s; }
+.sparkles span:nth-child(4) { top: 76%; right: 6%; animation-delay: -1s; }
+.sparkles span:nth-child(5) { top: 43%; right: 3%; animation-delay: -3s; }
+
+@keyframes float {
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.page {
+  width: min(920px, 92%);
+  margin: auto;
+  padding: 30px 0 20px;
+}
+
+.welcome, .profile, .section {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(197,133,169,.25);
+  border-radius: 25px;
+  box-shadow: 0 10px 28px rgba(194,139,171,.1);
+}
+
+.welcome {
+  text-align: center;
+  padding: 22px 16px;
+  margin-bottom: 22px;
+}
+
+h1, h2 {
+  color: #ad6e94;
+}
+
+.welcome h1 {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  margin: 0 0 10px;
+}
+
+.welcome p {
+  margin: 0;
+  line-height: 1.8;
+  color: #9c7890;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 23px;
+  align-items: center;
+  padding: 25px;
+}
+
+.avatar {
+  width: 145px;
+  height: 145px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #f9d6e7, #e8ddff);
+  border: 4px solid white;
   display: grid;
   place-items: center;
-  padding: 24px 14px;
-  font-family: "Trebuchet MS", sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle, white 1px, transparent 2px), linear-gradient(140deg, #eee2fa, #fff8ff, #e7dcf4);
-  background-size: 35px 35px, auto;
-}
-.card {
-  width: 100%;
-  max-width: 380px;
-  padding: 32px 22px;
   text-align: center;
-  border: 1px solid #ffffff;
-  border-radius: 28px;
-  background: var(--card);
-  box-shadow: 0 15px 45px #8f73a52b;
+  overflow: hidden;
+  color: #a66f91;
 }
-.avatar {
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
+
+.avatar img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 4px solid white;
-  background: #e9dcf3;
 }
-h1 { margin: 16px 0 6px; font-size: 27px; }
-.small { color: var(--muted); font-size: 13px; }
-.heart { font-size: 32px; color: var(--accent); margin: 16px; }
-.bio { line-height: 1.7; font-size: 14px; }
-.tags { margin: 20px 0; }
-.tag {
-  display: inline-block;
-  padding: 7px 11px;
-  margin: 3px;
-  border: 1px solid #e4d5f0;
-  border-radius: 20px;
-  font-size: 12px;
+
+.name {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
 }
-.links { display: grid; gap: 10px; }
-.links a {
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background: #fff0f7;
+  border: 1px solid #f2d5e5;
+  color: #a66f91;
+  border-radius: 99px;
+  padding: 6px 11px;
+  font-size: .85rem;
+}
+
+.bio {
+  color: #98728b;
+}
+
+.section {
+  margin-top: 23px;
+  padding: 23px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+
+.section-sub {
+  text-align: center;
+  font-size: .9rem;
+  color: #a88a9d;
+  margin-bottom: 20px;
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 11px;
+}
+
+.interest {
+  border: 1px solid #f0d5e4;
+  background: linear-gradient(145deg, #fffafd, #fff1f8);
+  border-radius: 17px;
+  padding: 14px 7px;
+  min-height: 90px;
+  color: #986987;
+  font: inherit;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.interest:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px #c182a633;
+}
+
+.emoji {
+  display: block;
+  font-size: 1.55rem;
+  margin-bottom: 7px;
+}
+
+.label {
+  display: block;
+  font-size: .83rem;
+  line-height: 1.4;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.link-card {
   text-decoration: none;
-  color: var(--text);
-  padding: 13px;
-  border: 1px solid #e3d5ee;
-  border-radius: 14px;
-  background: #fff9ff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 17px;
+  background: #fff3f9;
+  border: 1px solid #efd4e4;
+  color: #a5688d;
+  font-weight: bold;
+  transition: .2s;
 }
-.links a:hover { background: #f1e6fa; }
-footer { margin-top: 22px; color: var(--muted); font-size: 11px; }
+
+.link-card:hover {
+  transform: translateY(-2px);
+  background: #ffeaf5;
+}
+
+.music {
+  text-align: center;
+}
+
+.music p {
+  color: #9b7b91;
+  font-size: .9rem;
+}
+
+audio {
+  width: min(100%, 430px);
+}
+
+footer {
+  text-align: center;
+  padding: 25px 8px 8px;
+  color: #b17c9d;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  max-width: 90%;
+  padding: 13px 18px;
+  border: 1px solid #efd0e2;
+  border-radius: 18px;
+  background: #fffafd;
+  color: #946382;
+  box-shadow: 0 8px 24px #8c5b7926;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+@media (max-width: 650px) {
+  .page { width: 94%; padding-top: 18px; }
+
+  .profile {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    padding: 21px;
+  }
+
+  .avatar {
+    width: 125px;
+    height: 125px;
+  }
+
+  .meta { justify-content: center; }
+  .section { padding: 17px; }
+
+  .interests {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .interest { padding: 11px 5px; }
+  .label { font-size: .78rem; }
+}
+
+@media (max-width: 360px) {
+  .interests { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
+
 <body>
-<main class="card">
-  <img class="avatar" src="https://placehold.co/300x300/e9dcf3/765987?text=your+avatar" alt="My avatar">
-  <h1>your name ♡</h1>
-  <div class="small">your pronouns · your timezone</div>
-  <div class="heart">♡</div>
-  <p class="bio">welcome to my little corner of the internet ✧<br>stay a little, look around, and have a lovely day.</p>
-  <div class="tags">
-    <span class="tag">♡ music</span>
-    <span class="tag">games</span>
-    <span class="tag">cute things</span>
-  </div>
-  <nav class="links">
-    <a href="https://instagram.com/">♡ instagram</a>
-    <a href="https://discord.com/">୨୧ discord</a>
-    <a href="mailto:hello@example.com">✉ contact me</a>
-  </nav>
-  <footer>made with ♡ by me</footer>
+
+<div class="sparkles" aria-hidden="true">
+  <span>✧</span>
+  <span>♡</span>
+  <span>✦</span>
+  <span>୨୧</span>
+  <span>✧</span>
+</div>
+
+<main class="page">
+
+  <!-- WELCOME -->
+  <header class="welcome">
+    <h1>welcome to my lιttle corner of the ιnternet ✧</h1>
+    <p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
+  </header>
+
+  <!-- PROFILE -->
+  <section class="profile">
+    <div class="avatar">
+      <!-- Upload avatar.jpg to your repository to use your photo -->
+      <img src="avatar.jpg" alt="my avatar"
+           onerror="this.style.display='none'; this.parentElement.innerHTML='♡<br>add your avatar<br>as avatar.jpg';">
+    </div>
+
+    <div>
+      <h2 class="name">꒰‎ᐢ⸝⸝⸝⸝⸝ᐢ꒱</h2>
+
+      <div class="meta">
+        <span class="pill">she / her</span>
+        <span class="pill">31 may</span>
+      </div>
+
+      <p class="bio">frαgιle heαrt . . ♡</p>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section class="section">
+    <h2 class="section-title">thιngs ι love ♡</h2>
+    <p class="section-sub">tαp α lιttle cαrd to see α messαge ✧</p>
+
+    <div class="interests">
+
+      <button class="interest" data-message="my husbαnd ♡ my fαvorιte person , αlwαys">
+        <span class="emoji">💗</span>
+        <span class="label">my husbαnd</span>
+      </button>
+
+      <button class="interest" data-message="my close frιends ♡ thαnk you for beιng here">
+        <span class="emoji">🫶</span>
+        <span class="label">my close frιends</span>
+      </button>
+
+      <button class="interest" data-message="the bunnιes frιends group 🐰 α lιttle plαce full of love">
+        <span class="emoji">🐰</span>
+        <span class="label">the bunnιes frιends group</span>
+      </button>
+
+      <button class="interest" data-message="the collαred pets frιends group ♡ my sweet people">
+        <span class="emoji">🐾</span>
+        <span class="label">the collαred pets frιends group</span>
+      </button>
+
+      <button class="interest" data-message="bunnιes αre so soft αnd precιous ♡">
+        <span class="emoji">🐇</span>
+        <span class="label">bunny</span>
+      </button>
+
+      <button class="interest" data-message="lιttle cαts mαke everythιng better ♡">
+        <span class="emoji">🐈</span>
+        <span class="label">cat</span>
+      </button>
+
+      <button class="interest" data-message="plushιes αre my comfort collectιon 🧸">
+        <span class="emoji">🧸</span>
+        <span class="label">plushιe</span>
+      </button>
+
+      <button class="interest" data-message="αnιmαngα tιme ✧ just one more epιsode">
+        <span class="emoji">🌸</span>
+        <span class="label">αnιmαngα</span>
+      </button>
+
+      <button class="interest" data-message="mαnhwα keeps me hooked for hours ♡">
+        <span class="emoji">📖</span>
+        <span class="label">mαnhwα</span>
+      </button>
+
+      <button class="interest" data-message="sαnrιo cuteness overload 🎀">
+        <span class="emoji">🎀</span>
+        <span class="label">sαnrιo</span>
+      </button>
+
+      <button class="interest" data-message="chιιkαwα ιs just too cute ♡">
+        <span class="emoji">🐹</span>
+        <span class="label">chιιkαwα</span>
+      </button>
+
+      <button class="interest" data-message="αnythιng cute αnd kαwαιι mαkes me hαppy ✧">
+        <span class="emoji">🩷</span>
+        <span class="label">kαwαιι / cute thιngs</span>
+      </button>
+
+      <button class="interest" data-message="dessert fιrst , αlwαys 🍰♡">
+        <span class="emoji">🍰</span>
+        <span class="label">dessert</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- SOCIAL LINKS -->
+  <section class="section">
+    <h2 class="section-title">fιnd me here ✧</h2>
+    <p class="section-sub">come sαy hιι ♡</p>
+
+    <div class="links">
+      <a class="link-card"
+         href="https://www.roblox.com/users/2530078224/profile"
+         target="_blank" rel="noopener noreferrer">
+        🎮 roblox
+      </a>
+
+      <a class="link-card"
+         href="https://discord.com/users/1459768880133308470"
+         target="_blank" rel="noopener noreferrer">
+        💬 dιscord
+      </a>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="section music">
+    <h2 class="section-title">α lιttle musιc ♫</h2>
+    <p>soft musιc for your vιsιt ♡</p>
+
+    <audio controls preload="none">
+      <source src="soft-music.mp3" type="audio/mpeg">
+      your browser does not support the audio player.
+    </audio>
+
+    <p>to αdd musιc , upload α fιle nαmed soft-music.mp3 to your reposιtory.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>mαde wιth ♡ by me</footer>
+
 </main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const toast = document.getElementById("toast");
+let toastTimeout;
+
+document.querySelectorAll(".interest").forEach(button => {
+  button.addEventListener("click", () => {
+    toast.textContent = button.dataset.message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimeout);
+
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2800);
+  });
+});
+</script>
+
 </body>
 </html>
