@@ -3,220 +3,581 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8edf8">
-<title>my little corner ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>my lιttle corner ♡</title>
+
 <style>
-:root{--pink:#f6d9eb;--pink2:#efc6e0;--lav:#e9e0f3;--ink:#a9759d;--line:#e8cce2;--glass:rgba(255,251,255,.82)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif;background:linear-gradient(135deg,#f5edf9,#fff5fb 48%,#eee6f5);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 20%,#fff 0,transparent 45%),radial-gradient(ellipse at 85% 70%,#eadcf3 0,transparent 48%),linear-gradient(135deg,#f1e8f6,#fff5fb,#eee5f4)}
-.heart-wall{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.65;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 76 76'%3E%3Ctext x='17' y='30' font-size='17' fill='white' fill-opacity='.9'%3E%E2%99%A1%3C/text%3E%3C/svg%3E");background-size:76px 76px}
-#sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:10}
-.sparkle{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;box-shadow:0 0 5px 2px #fff8;opacity:0;animation:drift var(--dur) linear infinite;animation-delay:var(--delay)}
-.sparkle:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:10px;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 3px #fff}
-.sparkle:before{content:"";position:absolute;left:50%;top:50%;height:1px;width:10px;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 3px #fff}
-@keyframes drift{0%{transform:translate3d(0,18px,0) scale(.5);opacity:0}12%{opacity:.85}75%{opacity:.65}100%{transform:translate3d(var(--move),-110vh,0) scale(1.1);opacity:0}}
-.page{width:min(900px,93%);margin:auto;padding:28px 0 18px}
-.panel{background:var(--glass);border:1px solid #e7c9e2;border-radius:25px;box-shadow:0 9px 28px #b38cb31b,inset 0 0 0 3px #fff8;backdrop-filter:blur(8px);position:relative}
-.welcome{padding:22px 18px;text-align:center;margin-bottom:20px;border-radius:35px}
-.welcome:before,.welcome:after{content:"🎀";position:absolute;top:50%;transform:translateY(-50%);font-size:22px;opacity:.75}
-.welcome:before{left:15px}
-.welcome:after{right:15px}
-.welcome h1{font-size:clamp(1rem,3vw,1.5rem);font-weight:500;margin:0 25px 9px;letter-spacing:.03em}
-.welcome p{margin:0;line-height:1.7;font-size:.95rem}
-.profile{display:flex;align-items:center;gap:25px;padding:23px;margin-bottom:20px}
-.avatar{width:150px;height:150px;flex:0 0 150px;border-radius:50%;border:3px solid #efd5e9;background:linear-gradient(145deg,#f9e7f2,#e9e0f5);display:grid;place-items:center;overflow:hidden;color:#b985ac;text-align:center}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.avatar-placeholder{padding:12px;font-size:.8rem}
-.name{font-size:clamp(1.5rem,4vw,2rem);font-weight:500;margin:0 0 12px;overflow-wrap:anywhere}
-.pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{border:1px solid var(--line);border-radius:99px;padding:6px 13px;background:#fff8fd;font-size:.88rem}
-.bio{margin:13px 0 0;font-size:1.05rem}
-.section{padding:22px;margin-bottom:20px}
-.title{text-align:center;font-size:1.3rem;font-weight:500;margin:0 0 7px}
-.sub{text-align:center;font-size:.88rem;margin:0 0 20px;color:#bd91b3}
-.interests{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
-.interest{min-width:0;min-height:118px;border:1px solid #ead1e6;border-radius:18px;background:linear-gradient(145deg,#fffaff,#fff3fa);color:var(--ink);font:inherit;cursor:pointer;padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;transition:transform .2s,box-shadow .2s}
-.interest:hover,.interest:focus-visible{transform:translateY(-3px);box-shadow:0 7px 17px #bd8cb422;outline:none}
-.charm{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 2px 2px #d5b1d044)}
-.label{font-size:.82rem;line-height:1.35;overflow-wrap:anywhere}
-.links{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.link{display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:19px;padding:12px;background:#fff7fc;min-width:0;transition:transform .2s}
-.link:hover{transform:translateY(-2px)}
-.link .charm{width:47px;height:47px}
-.music{text-align:center}
-.music p{font-size:.9rem}
-.youtube{width:min(100%,480px);aspect-ratio:16/9;border:1px solid var(--line);border-radius:17px;overflow:hidden;margin:15px auto 0;background:#f7e9f5}
-.youtube iframe{width:100%;height:100%;border:0}
-footer{text-align:center;padding:10px 0 22px;letter-spacing:.04em}
-.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:90%;padding:13px 18px;border-radius:18px;border:1px solid var(--line);background:#fffaff;box-shadow:0 8px 25px #9d739b25;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
-.toast.show{opacity:1}
-@media(max-width:600px){
-.page{width:94%;padding-top:16px}
-.welcome{padding:20px 13px}
-.welcome:before,.welcome:after{font-size:16px}
-.welcome h1{margin-left:20px;margin-right:20px}
-.profile{flex-direction:column;text-align:center;padding:20px;gap:14px}
-.avatar{width:125px;height:125px;flex-basis:125px}
-.pills{justify-content:center}
-.section{padding:16px}
-.interests{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.interest{min-height:105px}
-.charm{width:48px;height:48px}
-.label{font-size:.76rem}
-.link{gap:6px;padding:9px 5px}
-.link .charm{width:40px;height:40px}
+:root {
+  --pink: #f2c5d7;
+  --blush: #f9e5ec;
+  --pale: #fff8fb;
+  --white: #ffffff;
+  --text: #806674;
+  --dark-pink: #c78da7;
 }
-@media(max-width:350px){.interests{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(255,248,251,.73), rgba(255,248,251,.83)),
+    url("background.jpg") center center / cover fixed;
+  background-color: #fff8fb;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+/* soft pink background */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 2px);
+  background-size: 26px 26px;
+  opacity: .45;
+}
+
+/* falling snow and sparkles */
+
+.snow {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.flake {
+  position: absolute;
+  top: -20px;
+  left: var(--x);
+  color: white;
+  font-size: var(--size);
+  opacity: var(--opacity);
+  text-shadow:
+    0 0 4px #fff,
+    0 0 9px #f3c5dd,
+    0 0 15px #ffffff;
+  animation: snowfall var(--duration) linear var(--delay) infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(22px, 50vh, 0) rotate(160deg);
+  }
+  100% {
+    transform: translate3d(-15px, 110vh, 0) rotate(320deg);
+  }
+}
+
+/* main profile */
+
+.page {
+  position: relative;
+  z-index: 2;
+  width: min(92%, 670px);
+  margin: 0 auto;
+  padding: 38px 0 28px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 20px;
+  border: 1px solid rgba(255,255,255,.95);
+  border-radius: 25px;
+  background: rgba(255, 250, 252, .84);
+  box-shadow:
+    0 10px 35px rgba(194, 140, 164, .13),
+    inset 0 0 20px rgba(255,255,255,.7);
+  backdrop-filter: blur(7px);
+}
+
+.music-area {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.music-heart {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 48px;
+  border: 1px solid #f0cfdd;
+  border-radius: 20px;
+  background: rgba(255,255,255,.88);
+  color: var(--dark-pink);
+  font: 27px Georgia, serif;
+  cursor: pointer;
+  transition: transform .25s, background .25s;
+}
+
+.music-heart:hover {
+  transform: scale(1.09);
+  background: #fff0f6;
+}
+
+.music-caption {
+  margin-top: 5px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b28a9e;
+}
+
+.music-status {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #b28a9e;
+  min-height: 14px;
+}
+
+.profile-pic {
+  display: block;
+  width: 116px;
+  height: 116px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  outline: 1px solid #efccdc;
+  box-shadow: 0 5px 18px rgba(197, 144, 166, .2);
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 26px;
+  font-weight: normal;
+  margin: 8px 0 12px;
+  color: #b47d98;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.info-pill {
+  border: 1px solid #f2d8e3;
+  background: rgba(255,255,255,.8);
+  border-radius: 20px;
+  padding: 7px 13px;
+  font-size: 12px;
+}
+
+.bio {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 15px 0 4px;
+}
+
+.divider {
+  text-align: center;
+  color: #d9a7be;
+  margin: 20px 0;
+  letter-spacing: 7px;
+  font-size: 13px;
+}
+
+.welcome {
+  text-align: center;
+  padding: 8px 2px 18px;
+}
+
+.welcome h2 {
+  font-weight: normal;
+  font-size: 20px;
+  color: #bd89a1;
+  line-height: 1.7;
+  margin: 0 0 5px;
+}
+
+.welcome p {
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 0;
+  color: #987b89;
+}
+
+/* interests */
+
+.section-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0 0 18px;
+  color: #bd89a1;
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.interest {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 10px;
+  min-height: 94px;
+  border: 1px solid rgba(239, 207, 222, .9);
+  border-radius: 17px;
+  background: rgba(255,255,255,.82);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.interest:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(205, 154, 177, .15);
+}
+
+.charm {
+  flex-shrink: 0;
+  width: 53px;
+  height: 53px;
+  object-fit: contain;
+}
+
+.interest-copy {
+  min-width: 0;
+}
+
+.interest h3 {
+  font-size: 13px;
+  font-weight: normal;
+  color: #b17c95;
+  margin: 0 0 5px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.interest p {
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 0;
+  color: #927785;
+  overflow-wrap: anywhere;
+}
+
+/* social links */
+
+.socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 19px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: #a87790;
+  font-size: 12px;
+  padding: 9px 14px;
+  border-radius: 18px;
+  border: 1px solid #efd3df;
+  background: rgba(255,255,255,.85);
+  transition: background .2s;
+}
+
+.social-link:hover {
+  background: #fff0f6;
+}
+
+.social-link img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #b694a4;
+}
+
+@media (max-width: 400px) {
+  .page {
+    width: 94%;
+    padding-top: 20px;
+  }
+
+  .card {
+    padding: 22px 13px;
+  }
+
+  .interests {
+    gap: 8px;
+  }
+
+  .interest {
+    padding: 10px 7px;
+    gap: 7px;
+    min-height: 86px;
+  }
+
+  .charm {
+    width: 43px;
+    height: 43px;
+  }
+
+  .interest h3 {
+    font-size: 12px;
+  }
+
+  .interest p {
+    font-size: 10px;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="heart-wall" aria-hidden="true"></div>
-<div id="sparkles" aria-hidden="true"></div>
+
+<!-- soft, slowly falling snow -->
+
+<div class="snow" aria-hidden="true">
+  <span class="flake" style="--x:3%;--size:12px;--opacity:.85;--duration:17s;--delay:-5s">✧</span>
+  <span class="flake" style="--x:8%;--size:8px;--opacity:.8;--duration:21s;--delay:-12s">❄</span>
+  <span class="flake" style="--x:14%;--size:15px;--opacity:.7;--duration:19s;--delay:-3s">✦</span>
+  <span class="flake" style="--x:19%;--size:9px;--opacity:.9;--duration:24s;--delay:-15s">✧</span>
+  <span class="flake" style="--x:25%;--size:11px;--opacity:.8;--duration:18s;--delay:-8s">❄</span>
+  <span class="flake" style="--x:31%;--size:7px;--opacity:.7;--duration:22s;--delay:-2s">✦</span>
+  <span class="flake" style="--x:37%;--size:13px;--opacity:.9;--duration:20s;--delay:-11s">✧</span>
+  <span class="flake" style="--x:43%;--size:8px;--opacity:.8;--duration:25s;--delay:-7s">❄</span>
+  <span class="flake" style="--x:49%;--size:12px;--opacity:.7;--duration:18s;--delay:-14s">✦</span>
+  <span class="flake" style="--x:55%;--size:9px;--opacity:.9;--duration:23s;--delay:-4s">✧</span>
+  <span class="flake" style="--x:61%;--size:14px;--opacity:.75;--duration:19s;--delay:-10s">❄</span>
+  <span class="flake" style="--x:67%;--size:8px;--opacity:.85;--duration:22s;--delay:-6s">✦</span>
+  <span class="flake" style="--x:73%;--size:12px;--opacity:.8;--duration:24s;--delay:-13s">✧</span>
+  <span class="flake" style="--x:79%;--size:9px;--opacity:.9;--duration:17s;--delay:-1s">❄</span>
+  <span class="flake" style="--x:85%;--size:13px;--opacity:.7;--duration:21s;--delay:-9s">✦</span>
+  <span class="flake" style="--x:91%;--size:8px;--opacity:.85;--duration:25s;--delay:-16s">✧</span>
+  <span class="flake" style="--x:97%;--size:11px;--opacity:.8;--duration:20s;--delay:-6s">❄</span>
+  <span class="flake" style="--x:5%;--size:7px;--opacity:.6;--duration:26s;--delay:-20s">✦</span>
+  <span class="flake" style="--x:23%;--size:10px;--opacity:.8;--duration:23s;--delay:-18s">✧</span>
+  <span class="flake" style="--x:42%;--size:7px;--opacity:.7;--duration:27s;--delay:-21s">❄</span>
+  <span class="flake" style="--x:64%;--size:10px;--opacity:.8;--duration:22s;--delay:-19s">✦</span>
+  <span class="flake" style="--x:82%;--size:7px;--opacity:.75;--duration:26s;--delay:-17s">✧</span>
+</div>
+
+<!-- hidden music player; click the heart to start music -->
+
+<iframe
+  id="musicPlayer"
+  title="background music"
+  allow="autoplay; encrypted-media"
+  style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;border:0"
+></iframe>
 
 <main class="page">
-<header class="panel welcome">
-<h1>welcome to my lιttle corner of the ιnternet ✧</h1>
-<p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
-</header>
 
-<section class="panel profile">
-<div class="avatar">
-<img src="avatar.jpg" alt="my avatar" onerror="this.remove();this.parentElement.innerHTML='<div class=&quot;avatar-placeholder&quot;>♡<br>add your avatar later</div>'">
-</div>
-<div>
-<h2 class="name">꒰‎ᐢ⸝⸝⸝⸝⸝ᐢ꒱</h2>
-<div class="pills">
-<span class="pill">she / her</span>
-<span class="pill">31 may</span>
-</div>
-<p class="bio">frαgιle heαrt . . ♡</p>
-</div>
-</section>
+  <section class="card">
 
-<section class="panel section">
-<h2 class="title">thιngs ι love ♡</h2>
-<p class="sub">tαp α lιttle chαrm to see α messαge ✧</p>
-<div class="interests">
+    <div class="music-area">
+      <button class="music-heart" id="musicButton"
+        aria-label="play background music" onclick="toggleMusic()">♡</button>
+      <div class="music-caption">clιck</div>
+      <div class="music-status" id="musicStatus"></div>
+    </div>
 
-<button class="interest" data-message="my husbαnd ♡ my fαvorιte person , αlwαys">
-<img class="charm" src="charms/heartbow.png" alt="">
-<span class="label">my husbαnd</span>
-</button>
+    <img class="profile-pic" src="mypfp.jpg" alt="my profile picture">
 
-<button class="interest" data-message="my close frιends ♡ thαnk you for beιng here">
-<img class="charm" src="charms/bow.png" alt="">
-<span class="label">my close frιends</span>
-</button>
+    <h1 class="profile-name">꒰ྀིっ˕ -｡꒱</h1>
 
-<button class="interest" data-message="the bunnιes frιends group 🐰 α lιttle plαce full of love">
-<img class="charm" src="charms/sakura.png" alt="">
-<span class="label">the bunnιes frιends group</span>
-</button>
+    <div class="profile-info">
+      <span class="info-pill">she / her</span>
+      <span class="info-pill">31 mαy</span>
+    </div>
 
-<button class="interest" data-message="the collαred pets frιends group ♡ my sweet people">
-<img class="charm" src="charms/cat.png" alt="">
-<span class="label">the collαred pets frιends group</span>
-</button>
+    <p class="bio">frαgιle heαrt . . ♡</p>
 
-<button class="interest" data-message="bunnιes αre so soft αnd precιous ♡">
-<img class="charm" src="charms/bunny.png" alt="">
-<span class="label">bunnιes</span>
-</button>
+    <div class="divider">୨♡୧</div>
 
-<button class="interest" data-message="lιttle kιttιes mαke everythιng better ♡">
-<img class="charm" src="charms/mymelody.png" alt="">
-<span class="label">kιttιes</span>
-</button>
+    <div class="welcome">
+      <h2>welcome to my lιttle corner of the ιnternet ✧</h2>
+      <p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
+    </div>
 
-<button class="interest" data-message="plushιes αre my comfort collectιon 🧸">
-<img class="charm" src="charms/clips.png" alt="">
-<span class="label">plushιe</span>
-</button>
+    <div class="divider">୨♡୧</div>
 
-<button class="interest" data-message="αnιmαngα tιme ✧ just one more epιsode">
-<img class="charm" src="charms/sheep.png" alt="">
-<span class="label">αnιmαngα</span>
-</button>
+    <h2 class="section-title">thιngs ι love ♡</h2>
 
-<button class="interest" data-message="mαnhwα keeps me hooked for hours ♡">
-<img class="charm" src="charms/bunnywand.png" alt="">
-<span class="label">mαnhwα</span>
-</button>
+    <div class="interests">
 
-<button class="interest" data-message="sαnrιo cuteness overload 🎀">
-<img class="charm" src="charms/hat.png" alt="">
-<span class="label">sαnrιo</span>
-</button>
+      <article class="interest">
+        <img class="charm" src="charms/heartbow.png" alt="">
+        <div class="interest-copy">
+          <h3>my boyfriend</h3>
+          <p>my fαvourιte person , αlwαys ♡</p>
+        </div>
+      </article>
 
-<button class="interest" data-message="αnythιng cute αnd kαwαιι mαkes me hαppy ✧">
-<img class="charm" src="charms/mousebow.png" alt="">
-<span class="label">kαwαιι / cute thιngs</span>
-</button>
+      <article class="interest">
+        <img class="charm" src="charms/bow.png" alt="">
+        <div class="interest-copy">
+          <h3>my bsf</h3>
+          <p>lιsette , my precιous αngel ♡</p>
+        </div>
+      </article>
 
-<button class="interest" data-message="fαshιon ιs α lιttle wαy to show your style ♡">
-<img class="charm" src="charms/bag.png" alt="">
-<span class="label">fαshιon</span>
-</button>
+      <article class="interest">
+        <img class="charm" src="charms/bone.png" alt="">
+        <div class="interest-copy">
+          <h3>the bunnies friends group</h3>
+          <p>my lιttle corner wιth my fαvourιte people</p>
+        </div>
+      </article>
 
-</div>
-</section>
+      <article class="interest">
+        <img class="charm" src="charms/collar.png" alt="">
+        <div class="interest-copy">
+          <h3>the collαred pets friends group</h3>
+          <p>α lιttle spαce for our memorιes</p>
+        </div>
+      </article>
 
-<section class="panel section">
-<h2 class="title">fιnd me here ✧</h2>
-<p class="sub">come sαy hιι ♡</p>
-<div class="links">
-<a class="link" href="https://www.roblox.com/users/2530078224/profile" target="_blank" rel="noopener noreferrer">
-<img class="charm" src="charms/book.png" alt="">
-<span>roblox ♡</span>
-</a>
-<a class="link" href="https://discord.com/users/1459768880133308470" target="_blank" rel="noopener noreferrer">
-<img class="charm" src="charms/book.png" alt="">
-<span>dιscord ♡</span>
-</a>
-</div>
-</section>
+      <article class="interest">
+        <img class="charm" src="charms/bunny.png" alt="">
+        <div class="interest-copy">
+          <h3>bunnies</h3>
+          <p>lιttle fluffy thιngs ι αdore</p>
+        </div>
+      </article>
 
-<section class="panel section music">
-<h2 class="title">α lιttle musιc ♫</h2>
-<p class="sub">soft musιc for your vιsιt ♡</p>
-<div class="youtube">
-<iframe id="musicPlayer" src="https://www.youtube.com/embed/qzSs6MJOkbM?autoplay=1&loop=1&playlist=qzSs6MJOkbM&playsinline=1" title="my little song" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<p>♪ enjoy your lιttle song ♡</p>
-<p>if musιc does not stαrt , tαp plαy above ♡</p>
-</section>
+      <article class="interest">
+        <img class="charm" src="charms/kitty.png" alt="">
+        <div class="interest-copy">
+          <h3>kitties</h3>
+          <p>my lιttle bαby pαws ♡</p>
+        </div>
+      </article>
 
-<footer>mαde wιth ♡ by me</footer>
+      <article class="interest">
+        <img class="charm" src="charms/flower.png" alt="">
+        <div class="interest-copy">
+          <h3>plushies</h3>
+          <p>my cute comfort collectιon ♡</p>
+        </div>
+      </article>
+
+      <article class="interest">
+        <img class="charm" src="charms/pencil.png" alt="">
+        <div class="interest-copy">
+          <h3>animanga</h3>
+          <p>thιngs ι'm ιnto ♡</p>
+        </div>
+      </article>
+
+      <article class="interest">
+        <img class="charm" src="charms/mymelodyhead.png" alt="">
+        <div class="interest-copy">
+          <h3>sanrio</h3>
+          <p>αll my fαvourιte chαrαcters</p>
+        </div>
+      </article>
+
+      <article class="interest">
+        <img class="charm" src="charms/clip.png" alt="">
+        <div class="interest-copy">
+          <h3>kαwαιι / cute thιngs</h3>
+          <p>lιttle thιngs thαt mαke me hαppy ♡</p>
+        </div>
+      </article>
+
+      <article class="interest">
+        <img class="charm" src="charms/melodypurse.png" alt="">
+        <div class="interest-copy">
+          <h3>fashion</h3>
+          <p>everyone hαs theιr own style ι αdore ♡</p>
+        </div>
+      </article>
+
+      <article class="interest">
+        <img class="charm" src="charms/cupcake.png" alt="">
+        <div class="interest-copy">
+          <h3>sweets</h3>
+          <p>ι enjoy αny lιttle sweet dessert ♡</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="divider">୨♡୧</div>
+
+    <h2 class="section-title">fιnd me here ♡</h2>
+
+    <div class="socials">
+      <a class="social-link"
+        href="https://www.roblox.com/users/2530078224/profile"
+        target="_blank" rel="noopener noreferrer">
+        <img src="charms/book.png" alt="">
+        roblox
+      </a>
+
+      <a class="social-link"
+        href="https://discord.com/users/1459768880133308470"
+        target="_blank" rel="noopener noreferrer">
+        <img src="charms/book.png" alt="">
+        dιscord
+      </a>
+    </div>
+
+  </section>
+
+  <footer>mαde wιth ♡ by me</footer>
+
 </main>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script>
-const sky=document.getElementById('sparkles');
-for(let i=0;i<38;i++){
- const s=document.createElement('span');
- s.className='sparkle';
- s.style.left=(Math.random()*100)+'%';
- s.style.top=(Math.random()*120+10)+'%';
- s.style.setProperty('--dur',(8+Math.random()*12)+'s');
- s.style.setProperty('--delay',(-Math.random()*18)+'s');
- s.style.setProperty('--move',((Math.random()-.5)*100)+'px');
- sky.appendChild(s);
+const musicButton = document.getElementById("musicButton");
+const musicStatus = document.getElementById("musicStatus");
+const musicPlayer = document.getElementById("musicPlayer");
+
+let musicPlaying = false;
+
+function toggleMusic() {
+  if (!musicPlaying) {
+    musicPlayer.src =
+      "https://www.youtube.com/embed/qzSs6MJOkbM?autoplay=1&loop=1&playlist=qzSs6MJOkbM";
+
+    musicButton.textContent = "♥";
+    musicButton.setAttribute("aria-label", "music started");
+    musicStatus.textContent = "enjoy the musιc ♡";
+    musicPlaying = true;
+  } else {
+    musicPlayer.src = "";
+    musicButton.textContent = "♡";
+    musicButton.setAttribute("aria-label", "play background music");
+    musicStatus.textContent = "";
+    musicPlaying = false;
+  }
 }
-const toast=document.getElementById('toast');
-let toastTimer;
-document.querySelectorAll('.interest').forEach(btn=>{
- btn.addEventListener('click',()=>{
-  toast.textContent=btn.dataset.message;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>toast.classList.remove('show'),2800);
- });
-});
 </script>
+
 </body>
 </html>
