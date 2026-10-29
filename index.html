@@ -11,7 +11,6 @@
   --pink: #ffe1f0;
   --white: #ffffff;
   --text: #8f7180;
-  --dark-pink: #d9a2bd;
 }
 
 * {
@@ -23,7 +22,7 @@ body {
   min-height: 100vh;
   font-family: Georgia, serif;
   color: var(--text);
-  background: var(--white);
+  background: white;
   background-image:
     radial-gradient(circle at 10% 20%, #ffe1f0 0, transparent 24%),
     radial-gradient(circle at 90% 80%, #fff0f7 0, transparent 28%);
@@ -37,7 +36,7 @@ button {
 
 .page {
   width: min(900px, 92%);
-  margin: 0 auto;
+  margin: auto;
   padding: 35px 0 25px;
 }
 
@@ -71,17 +70,31 @@ header {
   align-items: center;
   padding: 24px;
   border-radius: 22px;
-  background: var(--pink);
   border: 1px solid #f8cfe2;
+
+  /* Profile background image */
+  background-image:
+    linear-gradient(#ffe1f0a8, #ffe1f0a8),
+    url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .avatar {
+  position: relative;
+  z-index: 2;
   width: 145px;
   height: 145px;
   object-fit: cover;
   border-radius: 18px;
   border: 5px solid white;
   background: white;
+}
+
+.profile-info {
+  position: relative;
+  z-index: 2;
 }
 
 .profile h2 {
@@ -96,13 +109,13 @@ header {
   font-size: 14px;
 }
 
-/* Soft glowing white snowfall */
+/* Tiny glowing white sparkles */
 .snow {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 10;
+  z-index: 1;
 }
 
 .snow span {
@@ -111,29 +124,29 @@ header {
   border-radius: 50%;
   background: white;
   box-shadow:
-    0 0 5px 2px rgba(255,255,255,1),
-    0 0 12px 4px rgba(255,255,255,.75);
+    0 0 5px 2px white,
+    0 0 12px 4px #ffffffbf;
   opacity: 0;
   animation: softSnowfall linear infinite;
 }
 
 @keyframes softSnowfall {
   0% {
-    transform: translate3d(0,-10px,0) scale(.5);
+    transform: translate(0, -10px) scale(.5);
     opacity: 0;
   }
   15% {
     opacity: .95;
   }
   50% {
-    transform: translate3d(12px,110px,0) scale(1);
+    transform: translate(12px, 110px) scale(1);
     opacity: .8;
   }
   85% {
     opacity: .65;
   }
   100% {
-    transform: translate3d(-8px,240px,0) scale(.4);
+    transform: translate(-8px, 240px) scale(.4);
     opacity: 0;
   }
 }
@@ -248,7 +261,7 @@ footer {
   font-size: 12px;
 }
 
-/* Favourite popup */
+/* Popup messages */
 .modal {
   display: none;
   position: fixed;
@@ -360,7 +373,7 @@ footer {
 
     <img class="avatar" src="mypfp.jpg" alt="my profile picture">
 
-    <div>
+    <div class="profile-info">
       <h2>hi, welcome ♡</h2>
       <p>she / her</p>
       <p>31 may</p>
@@ -383,7 +396,6 @@ footer {
   <p class="section-note">click on a little charm to see a message ✧</p>
 
   <section class="interests">
-
     <button class="interest" onclick="showMessage(0)">
       <img src="charms/heartbow.png" alt="">
       <p>my boyfriend ♡</p>
@@ -443,7 +455,6 @@ footer {
       <img src="charms/cupcake.png" alt="">
       <p>sweets</p>
     </button>
-
   </section>
 
   <nav class="socials">
@@ -473,12 +484,11 @@ footer {
 </div>
 
 <script>
-/* Create the tiny glowing snowfall */
+/* Falling sparkles */
 const snowContainer = document.getElementById("snow");
 
 for (let i = 0; i < 28; i++) {
   const sparkle = document.createElement("span");
-
   sparkle.style.left = Math.random() * 100 + "%";
   sparkle.style.animationDuration = (6 + Math.random() * 7) + "s";
   sparkle.style.animationDelay = (Math.random() * 12) + "s";
@@ -490,73 +500,72 @@ for (let i = 0; i < 28; i++) {
   snowContainer.appendChild(sparkle);
 }
 
-/* Favourite popup messages */
+/* Favourite cards */
 const interests = [
   {
     title: "my boyfriend ♡",
     image: "charms/heartbow.png",
-    message: "my favourite person, always ♡ 💌"
+    message: "my favourite person , always ♡ 💌"
   },
   {
     title: "my bsf ♡",
     image: "charms/bow.png",
-    message: "Lisette, my precious angel ♡ 🎀"
+    message: "lisette , my dear precious angel ♡ 🎀"
   },
   {
     title: "the bunnies friends group",
     image: "charms/bone.png",
-    message: "a place full of love and memories 💌🐰🌸"
+    message: "a place full of love and memories ⁠♡ 🐰"
   },
   {
     title: "the collared pets friends group",
     image: "charms/collar.png",
-    message: "little corner with my favourite people 🎀💌"
+    message: "little corner with my favourite people ⁠♡ 💌"
   },
   {
-    title: "bunnies ♡",
+    title: "bunnies ",
     image: "charms/bunny.png",
-    message: "soft and precious 🐰🌸"
+    message: "soft and precious ⁠♡ 🐇"
   },
   {
-    title: "kitties ♡",
+    title: "kitties ",
     image: "charms/kitty.png",
-    message: "my little baby paws 🐾"
+    message: "my little baby paws ♡ 🐾"
   },
   {
-    title: "plushies ♡",
+    title: "plushies ",
     image: "charms/flower.png",
-    message: "my cute comfort collection 🎀"
+    message: "my cute comfort collection ♡ 🧸"
   },
   {
-    title: "animanga ♡",
+    title: "animanga ",
     image: "charms/pencil.png",
-    message: "things i into 💌"
+    message: "my little interest ♡ 💌"
   },
   {
-    title: "sanrio ♡",
+    title: "sanrio ",
     image: "charms/mymelodyhead.png",
-    message: "my favourites characters 🎀"
+    message: "my favourites characters ♡ 🎀"
   },
   {
-    title: "kawaii / cute things ♡",
+    title: "kawaii / cute things ",
     image: "charms/clip.png",
-    message: "little things that make me happy 🌸🎀"
+    message: "little things that make me happy ⁠♡ 🎀"
   },
   {
-    title: "fashion ♡",
+    title: "fashion ",
     image: "charms/melodypurse.png",
-    message: "everyone has their own style i adore ♡ 🎀"
+    message: "everyone has their own style i adore ♡ 🌸"
   },
   {
-    title: "sweets ♡",
+    title: "sweets ",
     image: "charms/cupcake.png",
-    message: "i enjoy any little sweet dessert 🍰"
+    message: "i enjoy any little sweet dessert ⁠♡ 🍰"
   }
 ];
 
 function showMessage(index) {
   const item = interests[index];
-
   document.getElementById("modal-image").src = item.image;
   document.getElementById("modal-title").textContent = item.title;
   document.getElementById("modal-message").textContent = item.message;
@@ -568,16 +577,14 @@ function hideMessage() {
 }
 
 function outsideClose(event) {
-  if (event.target.id === "interest-modal") {
-    hideMessage();
-  }
+  if (event.target.id === "interest-modal") hideMessage();
 }
 
 document.addEventListener("keydown", function(event) {
   if (event.key === "Escape") hideMessage();
 });
 
-/* YouTube music player */
+/* YouTube music */
 let player;
 let playerReady = false;
 let musicStarted = false;
@@ -611,11 +618,6 @@ function createPlayer() {
     events: {
       onReady: function() {
         playerReady = true;
-      },
-      onStateChange: function(event) {
-        if (event.data === YT.PlayerState.ENDED) {
-          player.playVideo();
-        }
       }
     }
   });
@@ -650,6 +652,5 @@ function toggleMusic() {
   }
 }
 </script>
-
 </body>
 </html>
