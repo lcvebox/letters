@@ -3,470 +3,220 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>a little corner ♡</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8edf8">
+<title>my little corner ♡</title>
 <style>
-:root {
-  --pink: #f5c9df;
-  --deep: #c477a0;
-  --lavender: #e8defb;
-  --text: #76566b;
-  --line: #f0d5e4;
+:root{--pink:#f6d9eb;--pink2:#efc6e0;--lav:#e9e0f3;--ink:#a9759d;--line:#e8cce2;--glass:rgba(255,251,255,.82)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif;background:linear-gradient(135deg,#f5edf9,#fff5fb 48%,#eee6f5);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 20%,#fff 0,transparent 45%),radial-gradient(ellipse at 85% 70%,#eadcf3 0,transparent 48%),linear-gradient(135deg,#f1e8f6,#fff5fb,#eee5f4)}
+.heart-wall{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.65;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='76' height='76' viewBox='0 0 76 76'%3E%3Ctext x='17' y='30' font-size='17' fill='white' fill-opacity='.9'%3E%E2%99%A1%3C/text%3E%3C/svg%3E");background-size:76px 76px}
+#sparkles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:10}
+.sparkle{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;box-shadow:0 0 5px 2px #fff8;opacity:0;animation:drift var(--dur) linear infinite;animation-delay:var(--delay)}
+.sparkle:after{content:"";position:absolute;left:50%;top:50%;width:1px;height:10px;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 3px #fff}
+.sparkle:before{content:"";position:absolute;left:50%;top:50%;height:1px;width:10px;background:#fff;transform:translate(-50%,-50%);box-shadow:0 0 3px #fff}
+@keyframes drift{0%{transform:translate3d(0,18px,0) scale(.5);opacity:0}12%{opacity:.85}75%{opacity:.65}100%{transform:translate3d(var(--move),-110vh,0) scale(1.1);opacity:0}}
+.page{width:min(900px,93%);margin:auto;padding:28px 0 18px}
+.panel{background:var(--glass);border:1px solid #e7c9e2;border-radius:25px;box-shadow:0 9px 28px #b38cb31b,inset 0 0 0 3px #fff8;backdrop-filter:blur(8px);position:relative}
+.welcome{padding:22px 18px;text-align:center;margin-bottom:20px;border-radius:35px}
+.welcome:before,.welcome:after{content:"🎀";position:absolute;top:50%;transform:translateY(-50%);font-size:22px;opacity:.75}
+.welcome:before{left:15px}
+.welcome:after{right:15px}
+.welcome h1{font-size:clamp(1rem,3vw,1.5rem);font-weight:500;margin:0 25px 9px;letter-spacing:.03em}
+.welcome p{margin:0;line-height:1.7;font-size:.95rem}
+.profile{display:flex;align-items:center;gap:25px;padding:23px;margin-bottom:20px}
+.avatar{width:150px;height:150px;flex:0 0 150px;border-radius:50%;border:3px solid #efd5e9;background:linear-gradient(145deg,#f9e7f2,#e9e0f5);display:grid;place-items:center;overflow:hidden;color:#b985ac;text-align:center}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar-placeholder{padding:12px;font-size:.8rem}
+.name{font-size:clamp(1.5rem,4vw,2rem);font-weight:500;margin:0 0 12px;overflow-wrap:anywhere}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line);border-radius:99px;padding:6px 13px;background:#fff8fd;font-size:.88rem}
+.bio{margin:13px 0 0;font-size:1.05rem}
+.section{padding:22px;margin-bottom:20px}
+.title{text-align:center;font-size:1.3rem;font-weight:500;margin:0 0 7px}
+.sub{text-align:center;font-size:.88rem;margin:0 0 20px;color:#bd91b3}
+.interests{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.interest{min-width:0;min-height:118px;border:1px solid #ead1e6;border-radius:18px;background:linear-gradient(145deg,#fffaff,#fff3fa);color:var(--ink);font:inherit;cursor:pointer;padding:10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;transition:transform .2s,box-shadow .2s}
+.interest:hover,.interest:focus-visible{transform:translateY(-3px);box-shadow:0 7px 17px #bd8cb422;outline:none}
+.charm{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 2px 2px #d5b1d044)}
+.label{font-size:.82rem;line-height:1.35;overflow-wrap:anywhere}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.link{display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:19px;padding:12px;background:#fff7fc;min-width:0;transition:transform .2s}
+.link:hover{transform:translateY(-2px)}
+.link .charm{width:47px;height:47px}
+.music{text-align:center}
+.music p{font-size:.9rem}
+.youtube{width:min(100%,480px);aspect-ratio:16/9;border:1px solid var(--line);border-radius:17px;overflow:hidden;margin:15px auto 0;background:#f7e9f5}
+.youtube iframe{width:100%;height:100%;border:0}
+footer{text-align:center;padding:10px 0 22px;letter-spacing:.04em}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:90%;padding:13px 18px;border-radius:18px;border:1px solid var(--line);background:#fffaff;box-shadow:0 8px 25px #9d739b25;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+.toast.show{opacity:1}
+@media(max-width:600px){
+.page{width:94%;padding-top:16px}
+.welcome{padding:20px 13px}
+.welcome:before,.welcome:after{font-size:16px}
+.welcome h1{margin-left:20px;margin-right:20px}
+.profile{flex-direction:column;text-align:center;padding:20px;gap:14px}
+.avatar{width:125px;height:125px;flex-basis:125px}
+.pills{justify-content:center}
+.section{padding:16px}
+.interests{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.interest{min-height:105px}
+.charm{width:48px;height:48px}
+.label{font-size:.76rem}
+.link{gap:6px;padding:9px 5px}
+.link .charm{width:40px;height:40px}
 }
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Trebuchet MS", system-ui, sans-serif;
-  color: var(--text);
-  background: linear-gradient(
-    135deg, #fff5fa, #f8f0ff, #fff0f6
-  );
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .45;
-  background-image:
-    radial-gradient(#e6aaca 1px, transparent 1px),
-    radial-gradient(#c9b8ed 1px, transparent 1px);
-  background-size: 34px 34px, 53px 53px;
-  z-index: -1;
-}
-
-.sparkles span {
-  position: fixed;
-  color: #dca4c4;
-  opacity: .7;
-  pointer-events: none;
-  animation: float 7s ease-in-out infinite;
-}
-
-.sparkles span:nth-child(1) { top: 12%; left: 7%; }
-.sparkles span:nth-child(2) { top: 23%; right: 8%; animation-delay: -2s; }
-.sparkles span:nth-child(3) { top: 61%; left: 4%; animation-delay: -4s; }
-.sparkles span:nth-child(4) { top: 76%; right: 6%; animation-delay: -1s; }
-.sparkles span:nth-child(5) { top: 43%; right: 3%; animation-delay: -3s; }
-
-@keyframes float {
-  50% { transform: translateY(-10px) rotate(10deg); }
-}
-
-.page {
-  width: min(920px, 92%);
-  margin: auto;
-  padding: 30px 0 20px;
-}
-
-.welcome, .profile, .section {
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(197,133,169,.25);
-  border-radius: 25px;
-  box-shadow: 0 10px 28px rgba(194,139,171,.1);
-}
-
-.welcome {
-  text-align: center;
-  padding: 22px 16px;
-  margin-bottom: 22px;
-}
-
-h1, h2 {
-  color: #ad6e94;
-}
-
-.welcome h1 {
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
-  margin: 0 0 10px;
-}
-
-.welcome p {
-  margin: 0;
-  line-height: 1.8;
-  color: #9c7890;
-}
-
-.profile {
-  display: grid;
-  grid-template-columns: 145px 1fr;
-  gap: 23px;
-  align-items: center;
-  padding: 25px;
-}
-
-.avatar {
-  width: 145px;
-  height: 145px;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #f9d6e7, #e8ddff);
-  border: 4px solid white;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  overflow: hidden;
-  color: #a66f91;
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.name {
-  font-size: clamp(1.5rem, 4vw, 2.1rem);
-  margin: 0 0 10px;
-  overflow-wrap: anywhere;
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pill {
-  background: #fff0f7;
-  border: 1px solid #f2d5e5;
-  color: #a66f91;
-  border-radius: 99px;
-  padding: 6px 11px;
-  font-size: .85rem;
-}
-
-.bio {
-  color: #98728b;
-}
-
-.section {
-  margin-top: 23px;
-  padding: 23px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 1.25rem;
-  margin: 0 0 8px;
-}
-
-.section-sub {
-  text-align: center;
-  font-size: .9rem;
-  color: #a88a9d;
-  margin-bottom: 20px;
-}
-
-.interests {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 11px;
-}
-
-.interest {
-  border: 1px solid #f0d5e4;
-  background: linear-gradient(145deg, #fffafd, #fff1f8);
-  border-radius: 17px;
-  padding: 14px 7px;
-  min-height: 90px;
-  color: #986987;
-  font: inherit;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.interest:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 7px 15px #c182a633;
-}
-
-.emoji {
-  display: block;
-  font-size: 1.55rem;
-  margin-bottom: 7px;
-}
-
-.label {
-  display: block;
-  font-size: .83rem;
-  line-height: 1.4;
-}
-
-.links {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.link-card {
-  text-decoration: none;
-  text-align: center;
-  padding: 15px;
-  border-radius: 17px;
-  background: #fff3f9;
-  border: 1px solid #efd4e4;
-  color: #a5688d;
-  font-weight: bold;
-  transition: .2s;
-}
-
-.link-card:hover {
-  transform: translateY(-2px);
-  background: #ffeaf5;
-}
-
-.music {
-  text-align: center;
-}
-
-.music p {
-  color: #9b7b91;
-  font-size: .9rem;
-}
-
-audio {
-  width: min(100%, 430px);
-}
-
-footer {
-  text-align: center;
-  padding: 25px 8px 8px;
-  color: #b17c9d;
-}
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  max-width: 90%;
-  padding: 13px 18px;
-  border: 1px solid #efd0e2;
-  border-radius: 18px;
-  background: #fffafd;
-  color: #946382;
-  box-shadow: 0 8px 24px #8c5b7926;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s;
-}
-
-.toast.show {
-  opacity: 1;
-}
-
-@media (max-width: 650px) {
-  .page { width: 94%; padding-top: 18px; }
-
-  .profile {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
-    padding: 21px;
-  }
-
-  .avatar {
-    width: 125px;
-    height: 125px;
-  }
-
-  .meta { justify-content: center; }
-  .section { padding: 17px; }
-
-  .interests {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .interest { padding: 11px 5px; }
-  .label { font-size: .78rem; }
-}
-
-@media (max-width: 360px) {
-  .interests { grid-template-columns: repeat(2, 1fr); }
-}
+@media(max-width:350px){.interests{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
-
 <body>
-
-<div class="sparkles" aria-hidden="true">
-  <span>✧</span>
-  <span>♡</span>
-  <span>✦</span>
-  <span>୨୧</span>
-  <span>✧</span>
-</div>
+<div class="heart-wall" aria-hidden="true"></div>
+<div id="sparkles" aria-hidden="true"></div>
 
 <main class="page">
+<header class="panel welcome">
+<h1>welcome to my lιttle corner of the ιnternet ✧</h1>
+<p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
+</header>
 
-  <!-- WELCOME -->
-  <header class="welcome">
-    <h1>welcome to my lιttle corner of the ιnternet ✧</h1>
-    <p>stαy α lιttle , look αround , αnd hαve α lovely dαy ♡</p>
-  </header>
+<section class="panel profile">
+<div class="avatar">
+<img src="avatar.jpg" alt="my avatar" onerror="this.remove();this.parentElement.innerHTML='<div class=&quot;avatar-placeholder&quot;>♡<br>add your avatar later</div>'">
+</div>
+<div>
+<h2 class="name">꒰‎ᐢ⸝⸝⸝⸝⸝ᐢ꒱</h2>
+<div class="pills">
+<span class="pill">she / her</span>
+<span class="pill">31 may</span>
+</div>
+<p class="bio">frαgιle heαrt . . ♡</p>
+</div>
+</section>
 
-  <!-- PROFILE -->
-  <section class="profile">
-    <div class="avatar">
-      <!-- Upload avatar.jpg to your repository to use your photo -->
-      <img src="avatar.jpg" alt="my avatar"
-           onerror="this.style.display='none'; this.parentElement.innerHTML='♡<br>add your avatar<br>as avatar.jpg';">
-    </div>
+<section class="panel section">
+<h2 class="title">thιngs ι love ♡</h2>
+<p class="sub">tαp α lιttle chαrm to see α messαge ✧</p>
+<div class="interests">
 
-    <div>
-      <h2 class="name">꒰‎ᐢ⸝⸝⸝⸝⸝ᐢ꒱</h2>
+<button class="interest" data-message="my husbαnd ♡ my fαvorιte person , αlwαys">
+<img class="charm" src="charms/heartbow.png" alt="">
+<span class="label">my husbαnd</span>
+</button>
 
-      <div class="meta">
-        <span class="pill">she / her</span>
-        <span class="pill">31 may</span>
-      </div>
+<button class="interest" data-message="my close frιends ♡ thαnk you for beιng here">
+<img class="charm" src="charms/bow.png" alt="">
+<span class="label">my close frιends</span>
+</button>
 
-      <p class="bio">frαgιle heαrt . . ♡</p>
-    </div>
-  </section>
+<button class="interest" data-message="the bunnιes frιends group 🐰 α lιttle plαce full of love">
+<img class="charm" src="charms/sakura.png" alt="">
+<span class="label">the bunnιes frιends group</span>
+</button>
 
-  <!-- INTERESTS -->
-  <section class="section">
-    <h2 class="section-title">thιngs ι love ♡</h2>
-    <p class="section-sub">tαp α lιttle cαrd to see α messαge ✧</p>
+<button class="interest" data-message="the collαred pets frιends group ♡ my sweet people">
+<img class="charm" src="charms/cat.png" alt="">
+<span class="label">the collαred pets frιends group</span>
+</button>
 
-    <div class="interests">
+<button class="interest" data-message="bunnιes αre so soft αnd precιous ♡">
+<img class="charm" src="charms/bunny.png" alt="">
+<span class="label">bunnιes</span>
+</button>
 
-      <button class="interest" data-message="my husbαnd ♡ my fαvorιte person , αlwαys">
-        <span class="emoji">💗</span>
-        <span class="label">my husbαnd</span>
-      </button>
+<button class="interest" data-message="lιttle kιttιes mαke everythιng better ♡">
+<img class="charm" src="charms/mymelody.png" alt="">
+<span class="label">kιttιes</span>
+</button>
 
-      <button class="interest" data-message="my close frιends ♡ thαnk you for beιng here">
-        <span class="emoji">🫶</span>
-        <span class="label">my close frιends</span>
-      </button>
+<button class="interest" data-message="plushιes αre my comfort collectιon 🧸">
+<img class="charm" src="charms/clips.png" alt="">
+<span class="label">plushιe</span>
+</button>
 
-      <button class="interest" data-message="the bunnιes frιends group 🐰 α lιttle plαce full of love">
-        <span class="emoji">🐰</span>
-        <span class="label">the bunnιes frιends group</span>
-      </button>
+<button class="interest" data-message="αnιmαngα tιme ✧ just one more epιsode">
+<img class="charm" src="charms/sheep.png" alt="">
+<span class="label">αnιmαngα</span>
+</button>
 
-      <button class="interest" data-message="the collαred pets frιends group ♡ my sweet people">
-        <span class="emoji">🐾</span>
-        <span class="label">the collαred pets frιends group</span>
-      </button>
+<button class="interest" data-message="mαnhwα keeps me hooked for hours ♡">
+<img class="charm" src="charms/bunnywand.png" alt="">
+<span class="label">mαnhwα</span>
+</button>
 
-      <button class="interest" data-message="bunnιes αre so soft αnd precιous ♡">
-        <span class="emoji">🐇</span>
-        <span class="label">bunny</span>
-      </button>
+<button class="interest" data-message="sαnrιo cuteness overload 🎀">
+<img class="charm" src="charms/hat.png" alt="">
+<span class="label">sαnrιo</span>
+</button>
 
-      <button class="interest" data-message="lιttle cαts mαke everythιng better ♡">
-        <span class="emoji">🐈</span>
-        <span class="label">cat</span>
-      </button>
+<button class="interest" data-message="αnythιng cute αnd kαwαιι mαkes me hαppy ✧">
+<img class="charm" src="charms/mousebow.png" alt="">
+<span class="label">kαwαιι / cute thιngs</span>
+</button>
 
-      <button class="interest" data-message="plushιes αre my comfort collectιon 🧸">
-        <span class="emoji">🧸</span>
-        <span class="label">plushιe</span>
-      </button>
+<button class="interest" data-message="fαshιon ιs α lιttle wαy to show your style ♡">
+<img class="charm" src="charms/bag.png" alt="">
+<span class="label">fαshιon</span>
+</button>
 
-      <button class="interest" data-message="αnιmαngα tιme ✧ just one more epιsode">
-        <span class="emoji">🌸</span>
-        <span class="label">αnιmαngα</span>
-      </button>
+</div>
+</section>
 
-      <button class="interest" data-message="mαnhwα keeps me hooked for hours ♡">
-        <span class="emoji">📖</span>
-        <span class="label">mαnhwα</span>
-      </button>
+<section class="panel section">
+<h2 class="title">fιnd me here ✧</h2>
+<p class="sub">come sαy hιι ♡</p>
+<div class="links">
+<a class="link" href="https://www.roblox.com/users/2530078224/profile" target="_blank" rel="noopener noreferrer">
+<img class="charm" src="charms/book.png" alt="">
+<span>roblox ♡</span>
+</a>
+<a class="link" href="https://discord.com/users/1459768880133308470" target="_blank" rel="noopener noreferrer">
+<img class="charm" src="charms/book.png" alt="">
+<span>dιscord ♡</span>
+</a>
+</div>
+</section>
 
-      <button class="interest" data-message="sαnrιo cuteness overload 🎀">
-        <span class="emoji">🎀</span>
-        <span class="label">sαnrιo</span>
-      </button>
+<section class="panel section music">
+<h2 class="title">α lιttle musιc ♫</h2>
+<p class="sub">soft musιc for your vιsιt ♡</p>
+<div class="youtube">
+<iframe id="musicPlayer" src="https://www.youtube.com/embed/qzSs6MJOkbM?autoplay=1&loop=1&playlist=qzSs6MJOkbM&playsinline=1" title="my little song" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<p>♪ enjoy your lιttle song ♡</p>
+<p>if musιc does not stαrt , tαp plαy above ♡</p>
+</section>
 
-      <button class="interest" data-message="chιιkαwα ιs just too cute ♡">
-        <span class="emoji">🐹</span>
-        <span class="label">chιιkαwα</span>
-      </button>
-
-      <button class="interest" data-message="αnythιng cute αnd kαwαιι mαkes me hαppy ✧">
-        <span class="emoji">🩷</span>
-        <span class="label">kαwαιι / cute thιngs</span>
-      </button>
-
-      <button class="interest" data-message="dessert fιrst , αlwαys 🍰♡">
-        <span class="emoji">🍰</span>
-        <span class="label">dessert</span>
-      </button>
-
-    </div>
-  </section>
-
-  <!-- SOCIAL LINKS -->
-  <section class="section">
-    <h2 class="section-title">fιnd me here ✧</h2>
-    <p class="section-sub">come sαy hιι ♡</p>
-
-    <div class="links">
-      <a class="link-card"
-         href="https://www.roblox.com/users/2530078224/profile"
-         target="_blank" rel="noopener noreferrer">
-        🎮 roblox
-      </a>
-
-      <a class="link-card"
-         href="https://discord.com/users/1459768880133308470"
-         target="_blank" rel="noopener noreferrer">
-        💬 dιscord
-      </a>
-    </div>
-  </section>
-
-  <!-- MUSIC -->
-  <section class="section music">
-    <h2 class="section-title">α lιttle musιc ♫</h2>
-    <p>soft musιc for your vιsιt ♡</p>
-
-    <audio controls preload="none">
-      <source src="soft-music.mp3" type="audio/mpeg">
-      your browser does not support the audio player.
-    </audio>
-
-    <p>to αdd musιc , upload α fιle nαmed soft-music.mp3 to your reposιtory.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>mαde wιth ♡ by me</footer>
-
+<footer>mαde wιth ♡ by me</footer>
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const toast = document.getElementById("toast");
-let toastTimeout;
-
-document.querySelectorAll(".interest").forEach(button => {
-  button.addEventListener("click", () => {
-    toast.textContent = button.dataset.message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimeout);
-
-    toastTimeout = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2800);
-  });
+const sky=document.getElementById('sparkles');
+for(let i=0;i<38;i++){
+ const s=document.createElement('span');
+ s.className='sparkle';
+ s.style.left=(Math.random()*100)+'%';
+ s.style.top=(Math.random()*120+10)+'%';
+ s.style.setProperty('--dur',(8+Math.random()*12)+'s');
+ s.style.setProperty('--delay',(-Math.random()*18)+'s');
+ s.style.setProperty('--move',((Math.random()-.5)*100)+'px');
+ sky.appendChild(s);
+}
+const toast=document.getElementById('toast');
+let toastTimer;
+document.querySelectorAll('.interest').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+  toast.textContent=btn.dataset.message;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove('show'),2800);
+ });
 });
 </script>
-
 </body>
 </html>
